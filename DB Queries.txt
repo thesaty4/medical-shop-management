@@ -1,0 +1,42 @@
+//----------------------------- WRITTEN by SATYA NARAYAN MISHRA -------------------------------
+
+create database medical_billing;
+use medical_billing;
+create table login_info(varchar usr_name varchar(50), varchar passwd varchar(50));
+
+create table login_info(
+usr_name varchar(50) primary key,
+name varchar(50),
+gender varchar(10),
+email varchar(50),
+address varchar(100),
+mobile varchar(14),
+passwd varchar(50));
+
+create table drugs_info(
+drug_name varchar(50) primary key,
+quantity int,
+total_price int,
+price_per_pcs int,
+cur_date date DEFAULT CURRENT_TIMESTAMP);
+
+create table customer_info(
+customer_id int primary key auto_increment,
+name varchar(50),
+gender varchar(10),
+mobile varchar(20),
+address varchar(50),
+state varchar(50),
+total_pay int DEFAULT NULL,
+purchase_date date DEFAULT CURRENT_TIMESTAMP);
+
+create table bill(
+customer_id int,
+drug_name varchar(50),
+quantity int,
+foreign key(customer_id) references customer_info(customer_id),
+foreign key(drug_name) references drugs_info(drug_name)
+);
+
+
+//----------------------------- WRITTEN by SATYA NARAYAN MISHRA -------------------------------
